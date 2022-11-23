@@ -1,0 +1,339 @@
+{
+	"info": {
+		"_postman_id": "fb46d62e-d6ed-4752-b978-eeb7f78de5f0",
+		"name": "Backend Vaccination / Login with Signed JWT / MySQL / Public & Protected Routes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8495330"
+	},
+	"item": [
+		{
+			"name": "Public",
+			"item": [
+				{
+					"name": "SignUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Pepe\",\r\n    \"email\": \"pepe@pepe.cl\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/auth/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SignIn / LogIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"pepe@pepe.cl\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/auth/signin",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "JWT Protected",
+			"item": [
+				{
+					"name": "Create Drug",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5MjE3NzY5LCJleHAiOjE2NjkzMDQxNjl9.cnWXav6Ij3BQCe_wwgfGV6haUu7gej22kw51GNU4Rhk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Apotoxin 4869\",\r\n    \"approved\": false,\r\n    \"min_dose\": 1,\r\n    \"max_dose\": 1,\r\n    \"available_at\": \"2022-11-22 12:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/drugs",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"drugs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Drug",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5MjE3NzY5LCJleHAiOjE2NjkzMDQxNjl9.cnWXav6Ij3BQCe_wwgfGV6haUu7gej22kw51GNU4Rhk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Apotoxin\",\r\n    \"approved\": false,\r\n    \"min_dose\": 1,\r\n    \"max_dose\": 1,\r\n    \"available_at\": \"2022-11-22\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/drugs/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"drugs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Drugs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5MjE3NzY5LCJleHAiOjE2NjkzMDQxNjl9.cnWXav6Ij3BQCe_wwgfGV6haUu7gej22kw51GNU4Rhk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/api/drugs",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"drugs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Drug",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5MjE3NzY5LCJleHAiOjE2NjkzMDQxNjl9.cnWXav6Ij3BQCe_wwgfGV6haUu7gej22kw51GNU4Rhk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/api/drugs/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"drugs",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Vaccination",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5MjE3NzY5LCJleHAiOjE2NjkzMDQxNjl9.cnWXav6Ij3BQCe_wwgfGV6haUu7gej22kw51GNU4Rhk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Larry Larryson\",\r\n    \"drug_id\": 7,\r\n    \"dose\": 1,\r\n    \"date\": \"2040/10/12 15:50:55\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/vaccination",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"vaccination"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Vaccination",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5MjE3NzY5LCJleHAiOjE2NjkzMDQxNjl9.cnWXav6Ij3BQCe_wwgfGV6haUu7gej22kw51GNU4Rhk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Larry Larryson D.\",\r\n    \"drug_id\": 10,\r\n    \"dose\": 1,\r\n    \"date\": \"2040/10/12 15:50:55\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/vaccination/14",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"vaccination",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vaccinations",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5MjE3NzY5LCJleHAiOjE2NjkzMDQxNjl9.cnWXav6Ij3BQCe_wwgfGV6haUu7gej22kw51GNU4Rhk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/vaccination",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"vaccination"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Vaccinations",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjY5MjE3NzY5LCJleHAiOjE2NjkzMDQxNjl9.cnWXav6Ij3BQCe_wwgfGV6haUu7gej22kw51GNU4Rhk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/vaccination/14",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"vaccination",
+								"14"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
